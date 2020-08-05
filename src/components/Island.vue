@@ -38,7 +38,9 @@
 
 <script>
 
+import "axios"
 import Desk from './Desk.vue'
+import Axios from 'axios'
 
 export default {
   name: 'Island',
@@ -56,25 +58,38 @@ export default {
     }
   },
     created: function(){
-        fetch('http://41-kbs218vm/api/wb/' + this.ids)
-        .then( Response =>{
-            return Response.json()
-        })
-        .then( json => {
-            //this.myData = json
+        // fetch('http://41-kbs218vm/api/wb/' + this.ids)
+        // .then( Response =>{
+        //     return Response.json()
+        // })
+        // .then( json => {
+        //     //this.myData = json
+        //     this.myData = Array(9);     //9つの配列を確保する
+        //     for (let i =0; i < json.length; i++){
+        //         if(json[i].seq.length==5){
+        //             let index = parseInt(json[i].seq.substr(3,2),10);
+        //             if(index >=0 && index < this.myData.length){
+        //                 this.myData[index] = json[i];
+        //             }
+        //         }   
+        //     }
+        // })
+        // .catch( error => {
+        //     this.error = error
+        // });
+        Axios.get('http://41-kbs218vm/api/wb/' + this.ids)
+        .then(response => {
             this.myData = Array(9);     //9つの配列を確保する
-            for (let i =0; i < json.length; i++){
-                if(json[i].seq.length==5){
-                    let index = parseInt(json[i].seq.substr(3,2),10);
+            for (let i =0; i < response.data.length; i++){
+                if(response.data[i].seq.length==5){
+                    let index = parseInt(response.data[i].seq.substr(3,2),10);
                     if(index >=0 && index < this.myData.length){
-                        this.myData[index] = json[i];
+                        this.myData[index] = response.data[i];
                     }
                 }   
             }
         })
-        .catch( error => {
-            this.error = error
-        });
+        .catch( error => this.error = error)
     },
   components: {
     Desk
