@@ -1,6 +1,9 @@
 # my-project
 
-## Project setup
+## wb-new-client
+
+This repositoly is new destination bulletin board system.
+Use Vuejs, Vue-Cli.
 
 ```bash
 npm install
