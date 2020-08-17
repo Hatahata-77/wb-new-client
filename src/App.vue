@@ -1,7 +1,7 @@
 <template>
      <div id="app">
         <!-- START NAV -->
-        <nav class="navbar">
+        <nav class="navbar container">
           <div class="container">
             <div class="navbar-brand">
               <a class="navbar-item" href="#">
