@@ -50,7 +50,7 @@ export default {
       }
   },
   props: {
-    'info': {
+    'data': {
         default:null
     },
     'ids': {
@@ -77,7 +77,7 @@ export default {
         // .catch( error => {
         //     this.error = error
         // });
-        Axios.get('http://41-kbs218vm/api/wb/' + this.ids)
+        Axios.get('http://localhost:9998/api/wb/' + this.ids)
         .then(response => {
             this.myData = Array(9);     //9つの配列を確保する
             for (let i =0; i < response.data.length; i++){

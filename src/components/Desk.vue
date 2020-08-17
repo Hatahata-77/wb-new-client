@@ -1,6 +1,7 @@
 <template>
     <div class="is-primary">
-        <a href="*" class="button" style="width:64px;" ref="name">{{ item.name }}</a><br /><a href="*">{{ item.interPhone }}</a><label style="margin-left:4px;" ref="status"></label>
+        <a href="*" class="button" style="width:64px;" ref="name">{{ item.name }}</a><br />
+        <a href="*" class="wb-phone">{{ item.interPhone }}</a><label style="margin-left:4px;" ref="status" class="wb-status"></label>
     </div>
 </template>
 
